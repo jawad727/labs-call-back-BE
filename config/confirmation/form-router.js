@@ -54,5 +54,23 @@ router.post('/makepost', (req, res) => {
     })
 })
 
+router.put('/posts/:id', (req, res) => {
+  
+    const id = req.params.id;
+    const postbod = req.body;
+  
+        formDB
+        .updatePost(id, postbod)
+        .then(updated => {
+            res.status(200).json({sucess: "It worked!"})
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: "The post information could not be modified."
+            });
+        })
+   
+})
+
 
 module.exports = router;
