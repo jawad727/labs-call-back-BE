@@ -41,7 +41,7 @@ function getPostByUser(id) {
 
 function getByID(id) {
     return db('form')
-      .where({ id })
+      .where({ id: id })
       .first();
   }
 
@@ -65,13 +65,13 @@ function postTweet(tweets) {
 
 function updatePost(id, body) {
         return db('form')
-            .where({id})
+            .where({id: id})
             .first()
             .update(body)
             .then(count => {
                 if(count > 0){
                     return db('form')
-                    .where({id})
+                    .where({id: id})
                     .first()
                 } else {
                     return null
