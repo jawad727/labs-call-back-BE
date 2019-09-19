@@ -63,13 +63,6 @@ function postTweet(tweets) {
 })
 }
 
-// function updatePost(id, changes) {
-//     return db('form')
-//       .where('id', id)
-//       .update(changes)
-//       .then(count => (count > 0 ? this.get(id) : null));
-//   }
-
 function updatePost(id, body) {
         return db('form')
             .where({id})
