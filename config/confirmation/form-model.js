@@ -26,7 +26,8 @@ module.exports = {
     getPostByUser,
     addPost,
     postTweet,
-    updatePost
+    updatePost,
+    deletepost
 };
 
 function getPosts() {
@@ -77,4 +78,10 @@ function updatePost(id, body) {
                     return null
                 }
             })
+    }
+
+function deletepost(id){
+        return db('form')
+            .where({id})
+            .del()
     }
