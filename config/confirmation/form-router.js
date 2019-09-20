@@ -72,5 +72,23 @@ router.put('/posts/:id', (req, res) => {
    
 })
 
+router.delete('/posts/:id', (req, res) => {
+    const id = req.params.id;
+
+        
+    formDB
+        .deletepost(id)
+
+        .then(users => {
+                res.status(204).end();   
+        })
+        .catch(error => {
+            res.status(500).json({
+                error: "user cant be removed"
+            })
+        }) 
+
+})
+
 
 module.exports = router;
